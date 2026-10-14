@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easy Pay — Safe Pay</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home"><span class="brand-icon">₹</span>
+        <span>Easy Pay <small>SAFE PAY</small></span>
+      </a>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#checker">Scam Scanner</a>
+        <a href="#guide">Safety Guide</a>
+        <a href="#business">Business</a>
+      </nav>
+      <button class="primary-button" onclick="openHelper()">Need Help?</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">YOUR DIGITAL SAFETY COMPANION</span>
+        <h1>Pay smart.<br><span>Stay safe.</span></h1>
+        <p>Check suspicious messages, understand digital payment risks, and learn how to protect yourself from online fraud.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#checker">Check a Message →</a>
+          <a class="secondary-button" href="#guide">Explore Safety Guide</a>
+        </div>
+        <div class="trust-row">
+          <span>✓ Privacy-conscious</span>
+          <span>✓ Simple explanations</span>
+          <span>✓ Built for everyone</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="shield">✓</div>
+        <div class="floating-card card-top">🔒 Secure payments</div>
+        <div class="floating-card card-bottom">🛡️ Scam awareness</div>
+        <div class="visual-caption">Think before you tap.</div>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card"><span>🔍</span><h3>Scam Scanner</h3><p>Identify suspicious wording and common fraud patterns.</p></article>
+      <article class="stat-card"><span>🎙️</span><h3>Voice Assistance</h3><p>Use speech input and spoken explanations where supported.</p></article>
+      <article class="stat-card"><span>📚</span><h3>Safety Learning</h3><p>Understand UPI, QR codes, OTPs, and payment scams.</p></article>
+      <article class="stat-card"><span>🏢</span><h3>Business Insights</h3><p>View locally recorded scan activity and risk categories.</p></article>
+    </section>
+
+    <section class="content-section" id="checker">
+      <div class="section-heading">
+        <span class="eyebrow">PAUSE. CHECK. PROTECT.</span>
+        <h2>Suspicious message scanner</h2>
+        <p>Paste a message, payment request, or suspicious link text to check for common warning signs.</p>
+      </div>
+
+      <div class="checker-layout">
+        <div class="panel scanner-panel">
+          <label for="messageInput">Message to check</label>
+          <textarea id="messageInput" rows="7" maxlength="10000" placeholder="Example: Your bank account will be blocked today. Click this link and share your OTP..."></textarea>
+          <div class="input-footer">
+            <span id="charCount">0 / 10000</span>
+            <button class="text-button" type="button" onclick="clearMessage()">Clear</button>
+          </div>
+          <div class="button-row">
+            <button class="primary-button" id="checkButton" type="button" onclick="checkScam()">Scan Message</button>
+            <button class="secondary-button" type="button" onclick="startVoiceInput()">🎙️ Speak</button>
+          </div>
+          <p id="voiceStatus" class="small-note" aria-live="polite">Voice input depends on your browser.</p>
+          <p class="small-note">Never enter your real UPI PIN, OTP, password, or full card details here.</p>
+        </div>
+
+        <div class="panel result-panel" id="resultPanel" aria-live="polite">
+          <div class="result-placeholder">
+            <div class="placeholder-icon">🛡️</div>
+            <h3>Your safety report will appear here</h3>
+            <p>Run a scan to see the risk level, warning signs, and recommended next steps.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section soft-section" id="guide">
+      <div class="section-heading">
+        <span class="eyebrow">SAFETY FIRST</span>
+        <h2>Know the common warning signs</h2>
+        <p>Fraudsters often use urgency, fear, rewards, or fake payment support to pressure people.</p>
+      </div>
+      <div class="guide-grid">
+        <article class="guide-card"><span>🔑</span><h3>OTP and PIN theft</h3><p>Never share your OTP, UPI PIN, password, or card security code with anyone.</p></article>
+        <article class="guide-card"><span>🔗</span><h3>Suspicious links</h3><p>Avoid unknown links and apps claiming to provide refunds, rewards, or urgent KYC updates.</p></article>
+        <article class="guide-card"><span>📲</span><h3>UPI payment requests</h3><p>Review the recipient and amount. A UPI PIN is generally used to authorize a payment, not to receive money.</p></article>
+        <article class="guide-card"><span>🎁</span><h3>Fake rewards</h3><p>Be cautious of unexpected prizes, cashback offers, jobs, or commissions that require an upfront payment.</p></article>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="eyebrow">LEARN AT YOUR PACE</span>
+        <h2>Digital payment learning resources</h2>
+        <p>Use official websites to learn about digital payments and report cybercrime.</p>
+      </div>
+      <div class="resource-grid">
+        <a class="resource-card" href="https://www.npci.org.in/" target="_blank" rel="noopener noreferrer"><span>🏦</span><h3>NPCI</h3><p>Explore official information about UPI and payment systems.</p><b>Visit NPCI ↗</b></a>
+        <a class="resource-card" href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer"><span>📘</span><h3>Reserve Bank of India</h3><p>Find financial awareness and consumer information.</p><b>Visit RBI ↗</b></a>
+        <a class="resource-card" href="https://cybercrime.gov.in/" target="_blank" rel="noopener noreferrer"><span>🚨</span><h3>Cybercrime Reporting</h3><p>Use the official Indian portal to report cybercrime.</p><b>Open portal ↗</b></a>
+        <a class="resource-card" href="https://www.youtube.com/results?search_query=official+NPCI+UPI+fraud+awareness" target="_blank" rel="noopener noreferrer"><span>▶️</span><h3>Video learning</h3><p>Find UPI fraud-awareness videos and verify the publisher before relying on advice.</p><b>Find videos ↗</b></a>
+      </div>
+    </section>
+
+    <section class="content-section soft-section" id="business">
+      <div class="section-heading">
+        <span class="eyebrow">FOR TEAMS AND ORGANISATIONS</span>
+        <h2>Business safety dashboard</h2>
+        <p>A demonstration dashboard using the scan history recorded by this application on this server.</p>
+      </div>
+      <div class="business-toolbar">
+        <button class="secondary-button" onclick="loadHistory()">↻ Refresh data</button>
+        <button class="text-button" onclick="clearHistory()">Clear scan history</button>
+      </div>
+      <div class="business-stats">
+        <article class="stat-card"><span>Total scans</span><h3 id="totalScans">—</h3></article>
+        <article class="stat-card"><span>High-risk scans</span><h3 id="highRiskScans">—</h3></article>
+        <article class="stat-card"><span>Other scans</span><h3 id="otherScans">—</h3></article>
+      </div>
+      <div class="panel history-panel">
+        <h3>Recent scan activity</h3>
+        <p class="small-note">Only metadata is displayed. The table does not show original messages.</p>
+        <div id="historyList"><p>Loading scan history…</p></div>
+      </div>
+      <p class="small-note">This is a prototype, not a production multi-company platform. It does not connect to bank accounts or execute payments.</p>
+    </section>
+
+    <section class="emergency-section">
+      <div>
+        <span class="eyebrow">ACT QUICKLY</span>
+        <h2>Think you have been scammed?</h2>
+        <p>Contact your bank or payment provider immediately. In India, call <strong>1930</strong> to report financial cyber fraud and submit a report through the official portal.</p>
+      </div>
+      <div class="emergency-actions">
+        <a class="primary-button" href="tel:1930">Call 1930</a>
+        <a class="secondary-button" href="https://cybercrime.gov.in/" target="_blank" rel="noopener noreferrer">Report online ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#home">₹ Easy Pay — Safe Pay</a>
+    <p>Built for safer digital payment awareness. Scanner results are indicative, not a guarantee that a message is safe or fraudulent.</p>
+  </footer>
+
+  <button class="helper-launcher" type="button" onclick="openHelper()" aria-label="Open Need Help assistant">💬</button>
+  <aside class="helper-panel" id="helperPanel" hidden>
+    <div class="helper-header">
+      <div><strong>Need Help?</strong><p>Easy Pay safety assistant</p></div>
+      <button type="button" onclick="closeHelper()" aria-label="Close assistant">✕</button>
+    </div>
+    <div class="helper-messages" id="helperMessages" aria-live="polite">
+      <p class="bot-message">Hi! I can share basic payment-safety guidance. Never share your PIN or OTP. What do you need help with?</p>
+    </div>
+    <div class="helper-quick-actions">
+      <button type="button" onclick="askHelper('I received a suspicious UPI request')">UPI request</button>
+      <button type="button" onclick="askHelper('I shared my OTP or PIN')">Shared OTP/PIN</button>
+      <button type="button" onclick="askHelper('I already lost money to a scam')">Lost money</button>
+      <button type="button" onclick="askHelper('How do I stay safe online?')">Safety tips</button>
+    </div>
+    <form id="helperForm">
+      <input id="helperInput" type="text" placeholder="Ask a safety question…" maxlength="500" autocomplete="off">
+      <button class="primary-button" type="submit">Send</button>
+    </form>
+    <p class="small-note">Automated guidance only. For urgent financial fraud in India, call 1930 and contact your bank.</p>
+  </aside>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
